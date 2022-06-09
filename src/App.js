@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { DisplayComp } from "./DisplayComp";
+import { ButtonArea } from "./ButtonArea";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // <!-- main content -->
+    <div className="wrapper">
+      {/* <!-- calc body --> */}
+      <div className="calculator">
+        {/* <!-- calculator header --> */}
+        <div className="calc-header">
+          <h1>Simple Calculator</h1>
+        </div>
+
+        {/* <!-- calculator body --> */}
+        <div className="calc-body">
+          {/* <!-- calculator input & display area --> */}
+          <DisplayComp />
+          {/* <!-- calculator input &buttons --> */}
+          <ButtonArea />
+        </div>
+      </div>
+      <div className="circle"></div>
     </div>
   );
 }
