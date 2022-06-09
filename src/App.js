@@ -1,7 +1,13 @@
 import "./App.css";
 import { DisplayComp } from "./DisplayComp";
 import { ButtonArea } from "./ButtonArea";
+import { useState } from "react";
 function App() {
+  const [str, setStr] = useState("");
+
+  const handleOnClick = (value) => {
+    setStr(str + value);
+  };
   return (
     // <!-- main content -->
     <div className="wrapper">
@@ -15,9 +21,9 @@ function App() {
         {/* <!-- calculator body --> */}
         <div className="calc-body">
           {/* <!-- calculator input & display area --> */}
-          <DisplayComp />
+          <DisplayComp str={str} />
           {/* <!-- calculator input &buttons --> */}
-          <ButtonArea />
+          <ButtonArea handleOnClick={handleOnClick} />
         </div>
       </div>
       <div className="circle"></div>
