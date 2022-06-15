@@ -1,5 +1,6 @@
 import React from "react";
 
-export const DisplayComp = ({ str }) => {
-  return <div className="display">{str || "0.00"}</div>;
+export const DisplayComp = ({ str, isPrank }) => {
+  const clsName = isPrank ? "display prank" : "display";
+  return <div className={clsName}>{str || "0.00"}</div>;
 };

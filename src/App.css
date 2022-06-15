@@ -88,3 +88,32 @@
 
 
 }
+
+.prank {
+    color: red;
+    animation-name: bounce 1s ease-in;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateX(10px);
+    }
+
+    20% {
+        transform: translateX(-10px);
+        color: red;
+    }
+
+    50% {
+        transform: translateX(-10px);
+    }
+
+    75% {
+        transform: translateX(-10px);
+        color: green;
+    }
+
+    100% {
+        transform: translateX(-10px);
+    }
+}
