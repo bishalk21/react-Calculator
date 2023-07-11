@@ -1,119 +1,126 @@
-.body {
-    margin: 0%;
-    padding: 0%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.wrapper {
-    background: linear-gradient(180deg, rgba(103, 129, 241, 0.98) 0%, rgba(178, 194, 219, 0.6174) 55.71%, rgba(39, 139, 210, 0.158229) 100%);
-    min-height: 100vh;
-    font-size: 1rem;
-    display: grid;
-    justify-content: center;
-    align-items: center;
+body {
+  width: 100%;
+  font-size: 16px;
 }
 
-.calculator {}
-
-/* calculator body  */
-.calc-body {
-    background: #7480BC;
-    border-radius: 31px;
-    width: 310px;
-    padding: 2rem;
-    position: relative;
+.app {
+  width: 100%;
+  height: 120vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 15px;
+  background: linear-gradient(to bottom, #589cd3 0%, #71b7c03a 100%);
 }
 
-/* display area */
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  padding: 40px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.container {
+  padding: 40px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+  position: relative;
+  min-height: 54vh;
+  border-radius: 10px;
+  border: 1px solid rgba(131, 187, 42, 0.647);
+  min-width: 30vw;
+  background: linear-gradient(#e6646498, #9198e59d);
+  z-index: 1;
+}
+
 .display {
-    background: #fff;
-    border-radius: 10px;
-    padding: 0.5rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #000;
-    margin-bottom: 1.5rem;
-    text-align: end;
-    overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 15px;
+  border: 1px solid rgba(131, 187, 42, 0.647);
+  border-radius: 10px;
+}
+/* 
+.btns {
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    "btn-ac btn-del btn-div btn-multi"
+    "btn-sev btn-eight btn-nine btn-plus"
+    "btn-four btn-fiv btn-six btn-min"
+    "btn-one btn-two btn-thr btn-ans"
+    "btn-zero btn-zero btn-dot btn-ans";
+  grid-gap: 10px;
+} */
+
+.btns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
 }
 
-/* btn-areas */
-.btn-area {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 1rem;
-    /* margin-bottom: 1.5rem; */
+.btn-zero {
+  /* grid-area: btn-zero; */
+  grid-column: 2/4;
 }
 
-.btn-area>div {
-    background: rgba(200, 234, 216, 0.755);
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    border-radius: 7px;
-    padding: 1rem 0;
-    box-shadow: -4px 4px 10px rgba(6, 6, 6, 0.9);
+.btn-ans {
+  /* grid-area: btn-ans; */
+  grid-row: 4/6;
+  grid-column: 4/5;
+}
+
+/* .btns > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 25px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+} */
+
+.btns > div {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 25px;
+  border-radius: 10px;
+  border: 1px solid rgba(131, 187, 42, 0.647);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btns > div:hover {
+  background-color: rgba(131, 187, 42, 0.647);
+  color: white;
 }
 
 .circle {
-    background: radial-gradient(50% 50% at 50% 50%,
-            #f7f5f7 0%,
-            rgba(144, 201, 69, 0.76) 0.01%,
-            rgba(24, 167, 69, 0.74) 26.04%,
-            rgba(5, 239, 56, 0.76) 63.54%,
-            rgba(234, 232, 232, 0.83) 100%);
-    border-radius: 100%;
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    /* top: -250px; */
-    /* left: -50px; */
-    left: calc(50% - 240px);
-
-    bottom: calc(50% - 290px);
-    /* bottom: -35px; */
-    /* z-index: 0; */
-}
-
-/* .btn-zero {
-    grid-column: 2/4;
-} */
-
-.btn-ans {
-    grid-row: 4/6;
-    grid-column: 4/5;
-}
-
-.btn-area>div:hover {
-    cursor: pointer;
-
-
-}
-
-.prank {
-    color: red;
-    animation-name: bounce 1s ease-in;
-}
-
-@keyframes bounce {
-    0% {
-        transform: translateX(10px);
-    }
-
-    20% {
-        transform: translateX(-10px);
-        color: red;
-    }
-
-    50% {
-        transform: translateX(-10px);
-    }
-
-    75% {
-        transform: translateX(-10px);
-        color: green;
-    }
-
-    100% {
-        transform: translateX(-10px);
-    }
+  width: 90px;
+  height: 90px;
+  background: rgba(131, 187, 42, 0.647);
+  border-radius: 50%;
+  position: absolute;
+  top: calc(100% - 94px);
+  left: calc((50% - 255px));
 }
