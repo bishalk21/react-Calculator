@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "description": "A calculator built with React and TypeScript",
-  "homepage": "https://bishalk21.github.io/react-calculator",
+  "homepage": "https://bishalk21.github.io/react-Calculator/",
   "type": "module",
   "scripts": {
     "dev": "vite",
