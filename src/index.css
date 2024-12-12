@@ -1,69 +1,210 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 220.9 39.3% 11%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 224 71.4% 4.1%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 210 20% 98%;
+    --primary-foreground: 220.9 39.3% 11%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 216 12.2% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+*,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 20px;
 }
 
 body {
-  margin: 0;
+  background-color: #ffffff;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(202, 202, 202, 0.498);
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.calculator-body {
+  height: 600px;
+  width: 400px;
+  background: linear-gradient(to bottom, #589cd3 0%, #71b7c03a 100%);
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.289);
+  position: relative;
+  padding: 20px;
+  display: grid;
+  /* justify-content: center; */
+  align-items: center;
+  backdrop-filter: blur(10px);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.display {
+  width: 355px;
+  height: 45px;
+  background: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+}
+
+.btns {
+  display: grid;
+  text-align: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 10px;
+}
+
+.btns > div {
+  background: rgb(255, 255, 255);
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  box-shadow: -2px -2px 5px rgb(0, 0, 0);
+
+  transition: all 0.3s;
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.btn-ans {
+  grid-row: 4/6;
+  grid-column: 4/5;
+}
+
+.btn-zero {
+  grid-column: 2/4;
+}
+
+.units {
+  background: #000;
+  width: 100%;
+  height: max-content;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  color: white;
+  font-size: 25px;
+}
+.units > h3 {
+  padding: 2px;
+}
+
+.units > div {
+  padding: 2px;
+  border: 1px solid white;
+}
+
+.pixels {
+  width: 300px;
+  background-color: green;
+  font-size: 16px;
+}
+
+.rem {
+  width: 20rem; /* 1rem = 16px, 10rem = 160px */
+  background-color: red;
+  font-size: 1rem;
+}
+
+.em {
+  width: 20em; /* 1em = 16px (parent font-size), if nearest  parent font-size is 25px, 1em = 25px */
+  background-color: blue;
+  font-size: 1em;
+}
+
+.percentage {
+  width: 50%;
+  background-color: rgb(172, 172, 106);
+  font-size: 1em;
+}
+
+.vh {
+  height: 10vh; /* 1vh = 1% of viewport height */
+  background-color: rgb(172, 172, 106);
+  font-size: 1em;
+}
+
+.vw {
+  width: 50vw; /* 1vw = 1% of viewport width */
+  background-color: rgb(172, 172, 106);
+  font-size: 1em;
 }
